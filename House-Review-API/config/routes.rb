@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
+
+  get '/member_details' => 'members#index'
+
   resources :reviews
   resources :buildings
 end
