@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  building: one
+  station: one
+  distance: 1
+  travel_method: one
+  travel_time: 1
+
+two:
+  building: two
+  station: two
+  distance: 1
+  travel_method: two
+  travel_time: 1

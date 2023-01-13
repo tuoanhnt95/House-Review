@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_12_152939) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_13_163450) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,11 +25,57 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_152939) do
     t.index ["user_id"], name: "index_building_reviews_on_user_id"
   end
 
+  create_table "building_stations", force: :cascade do |t|
+    t.bigint "building_id", null: false
+    t.bigint "station_id", null: false
+    t.integer "distance"
+    t.bigint "travel_method_id", null: false
+    t.integer "travel_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_building_stations_on_building_id"
+    t.index ["station_id"], name: "index_building_stations_on_station_id"
+    t.index ["travel_method_id"], name: "index_building_stations_on_travel_method_id"
+  end
+
   create_table "buildings", force: :cascade do |t|
     t.string "building_url"
     t.string "building_name"
     t.integer "mng_fee"
     t.integer "built_year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "city_ward_districts", force: :cascade do |t|
+    t.string "name"
+    t.string "name_jpn"
+    t.bigint "prefecture_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prefecture_id"], name: "index_city_ward_districts_on_prefecture_id"
+  end
+
+  create_table "prefectures", force: :cascade do |t|
+    t.string "name"
+    t.string "name_jpn"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stations", force: :cascade do |t|
+    t.string "name"
+    t.string "name_jpn"
+    t.string "postal_code"
+    t.bigint "city_ward_district_id", null: false
+    t.string "area_address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_ward_district_id"], name: "index_stations_on_city_ward_district_id"
+  end
+
+  create_table "travel_methods", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,4 +97,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_12_152939) do
 
   add_foreign_key "building_reviews", "buildings"
   add_foreign_key "building_reviews", "users"
+  add_foreign_key "building_stations", "buildings"
+  add_foreign_key "building_stations", "stations"
+  add_foreign_key "building_stations", "travel_methods"
+  add_foreign_key "city_ward_districts", "prefectures"
+  add_foreign_key "stations", "city_ward_districts"
 end
