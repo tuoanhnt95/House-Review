@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  apartment_url: MyString
+  name: MyString
+  layout: MyString
+  rent_fee: 9.99
+  lease_deposit: 9.99
+  key_money: 9.99
+  guanrantee_deposit: 9.99
+  floor_area: 9.99
+  floor: MyString
+  building: one
+  available: false
+  last_available: 2023-01-14 12:16:35
+
+two:
+  apartment_url: MyString
+  name: MyString
+  layout: MyString
+  rent_fee: 9.99
+  lease_deposit: 9.99
+  key_money: 9.99
+  guanrantee_deposit: 9.99
+  floor_area: 9.99
+  floor: MyString
+  building: two
+  available: false
+  last_available: 2023-01-14 12:16:35
