@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_13_163450) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_14_040344) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "apartments", force: :cascade do |t|
+    t.string "apartment_url"
+    t.string "name"
+    t.string "layout"
+    t.decimal "rent_fee"
+    t.decimal "lease_deposit"
+    t.decimal "key_money"
+    t.decimal "guanrantee_deposit"
+    t.decimal "floor_area"
+    t.string "floor"
+    t.bigint "building_id", null: false
+    t.boolean "available"
+    t.datetime "last_available"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["building_id"], name: "index_apartments_on_building_id"
+  end
 
   create_table "building_reviews", force: :cascade do |t|
     t.text "content"
@@ -41,10 +59,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_163450) do
   create_table "buildings", force: :cascade do |t|
     t.string "building_url"
     t.string "building_name"
-    t.integer "mng_fee"
+    t.decimal "mng_fee"
     t.integer "built_year"
+    t.bigint "city_ward_district_id", null: false
+    t.string "area_address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["city_ward_district_id"], name: "index_buildings_on_city_ward_district_id"
   end
 
   create_table "city_ward_districts", force: :cascade do |t|
@@ -95,11 +116,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_163450) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "apartments", "buildings"
   add_foreign_key "building_reviews", "buildings"
   add_foreign_key "building_reviews", "users"
   add_foreign_key "building_stations", "buildings"
   add_foreign_key "building_stations", "stations"
   add_foreign_key "building_stations", "travel_methods"
+  add_foreign_key "buildings", "city_ward_districts"
   add_foreign_key "city_ward_districts", "prefectures"
   add_foreign_key "stations", "city_ward_districts"
 end
