@@ -38,14 +38,19 @@ class BuildingsController < ApplicationController
     @building.destroy
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_building
-      @building = Building.find(params[:id])
-    end
+  def scrape
+    puts Scraper.scrape
+  end
 
-    # Only allow a list of trusted parameters through.
-    def building_params
-      params.require(:building).permit(:building_url, :building_name, :mng_fee, :built_year)
-    end
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_building
+    @building = Building.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def building_params
+    params.require(:building).permit(:building_url, :building_name, :mng_fee, :built_year)
+  end
 end
