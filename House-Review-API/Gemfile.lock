@@ -66,11 +66,14 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     bcrypt (3.1.18)
     bootsnap (1.15.0)
       msgpack (~> 1.2)
     builder (3.2.4)
     concurrent-ruby (1.1.10)
+    connection_pool (2.3.0)
     crass (1.0.6)
     date (3.3.3)
     debug (1.7.1)
@@ -85,6 +88,8 @@ GEM
     devise-jwt (0.10.0)
       devise (~> 4.0)
       warden-jwt_auth (~> 0.6)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
     dry-auto_inject (0.9.0)
       dry-container (>= 0.3.4)
     dry-configurable (0.16.1)
@@ -98,6 +103,8 @@ GEM
     erubi (1.12.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    http-cookie (1.0.5)
+      domain_name (~> 0.5)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
@@ -113,10 +120,27 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.2)
+    mechanize (2.8.5)
+      addressable (~> 2.8)
+      domain_name (~> 0.5, >= 0.5.20190701)
+      http-cookie (~> 1.0, >= 1.0.3)
+      mime-types (~> 3.0)
+      net-http-digest_auth (~> 1.4, >= 1.4.1)
+      net-http-persistent (>= 2.5.2, < 5.0.dev)
+      nokogiri (~> 1.11, >= 1.11.2)
+      rubyntlm (~> 0.6, >= 0.6.3)
+      webrick (~> 1.7)
+      webrobots (~> 0.1.2)
     method_source (1.0.0)
+    mime-types (3.4.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2022.0105)
     mini_mime (1.1.2)
     minitest (5.17.0)
     msgpack (1.6.0)
+    net-http-digest_auth (1.4.1)
+    net-http-persistent (4.0.1)
+      connection_pool (~> 2.2)
     net-imap (0.3.4)
       date
       net-protocol
@@ -131,6 +155,7 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.5)
+    public_suffix (5.0.1)
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.2)
@@ -171,10 +196,14 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rubyntlm (0.6.3)
     thor (1.2.1)
     timeout (0.3.1)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.8.2)
     warden (1.2.9)
       rack (>= 2.0.9)
     warden-jwt_auth (0.7.0)
@@ -182,6 +211,8 @@ GEM
       dry-configurable (~> 0.13)
       jwt (~> 2.1)
       warden (~> 1.2)
+    webrick (1.7.0)
+    webrobots (0.1.2)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -192,14 +223,21 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  connection_pool
   debug
   devise
   devise-jwt (~> 0.10.0)
+  mechanize
+  net-http-digest_auth
+  net-http-persistent
+  nokogiri
   pg (~> 1.1)
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.4)
+  rubyntlm
   tzinfo-data
+  webrobots
 
 RUBY VERSION
    ruby 3.1.2p20

@@ -49,4 +49,17 @@ group :development do
   # gem "spring"
 end
 
+# Use Devise-JWT to hangle user authorization
 gem "devise-jwt", "~> 0.10.0"
+
+# Use Nokogiri to parse HTML data
+gem "nokogiri"
+
+# Use Mechanize and dependencies to fetch webpage, handle cookies
+gem "mechanize"
+gem "webrobots"
+gem "rubyntlm"
+gem "connection_pool"
+gem "net-http-persistent"
+gem "net-http-digest_auth"
+# Type 'bundle install' in the command line
