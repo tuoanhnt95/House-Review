@@ -1,11 +1,12 @@
-<script setup>
-import Search from '../components/Search.vue';
-import TheWelcome from '../components/TheWelcome.vue'
-</script>
-
 <template>
   <main>
     <Search />
-    <!-- <TheWelcome /> -->
+    <RecentReviews />
+    <ReviewRequests />
   </main>
 </template>
+<script setup>
+import Search from '../components/Search.vue';
+import RecentReviews from '../components/RecentReviews.vue';
+import ReviewRequests from '../components/ReviewRequests.vue';
+</script>

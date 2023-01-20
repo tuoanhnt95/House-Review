@@ -1,9 +1,9 @@
 <template>
-  <Search />  
+  <HomeView />  
 </template>
 
 <script setup>
-import Search from './components/Search.vue';
+import HomeView from './views/HomeView.vue';
 </script>
 
 <style scoped>
