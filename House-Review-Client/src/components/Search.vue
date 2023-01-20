@@ -1,20 +1,19 @@
 <template>
-    <div id="search-apartment">
-        <h1>Lalala</h1>
-        <div class="search-bar search-bar-big">
+    <div id="search-apartment">        
+        <div class="font-bold border-solid border border-purple-200">
             <input type="text" 
                 placeholder="apartment url" 
                 id="search-url"
                 v-model="apartmentUrl"
             >
         </div>
-        <div class="search-bar">
+        <div class="font-bold">
             <input type="text" placeholder="price">
         </div>
-        <div class="search-bar">
+        <div class="font-bold">
             <input type="text" placeholder="area">
         </div>
-        <div class="search-bar">
+        <div class="font-bold">
             <input type="text" placeholder="layout">
         </div>        
         <button @click="search()">Search</button>
