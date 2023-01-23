@@ -1,5 +1,5 @@
 <template>
-    <div id="search-apartment" class="m-4 border-solid border border-purple-200">        
+    <div id="search-apartment" class="sm:w-2/3 sm:mx-auto md:w-1/2 xl:w-1/3 m-4 border-solid border border-purple-200">        
         <div class="border-solid border border-purple-200">
             <div class="grid grid-cols-12">
                 <div class="col-span-11">
@@ -40,7 +40,7 @@
                     </div>
                 </div>        
             </div>
-            <button class="container mx-auto my-1.5 border-solid border border-green-200" @click="search()">Search</button>        
+            <button class="container mx-auto w-full my-1.5 border-solid border border-green-200" @click="search()">Search</button>        
         </div>
     </div>
 </template>
