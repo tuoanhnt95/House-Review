@@ -35,9 +35,9 @@
                     </div>
                 </div>
                 <div class="col-span-1">
-                    <div class="border-solid border border-green-200">
+                    <button class="border-solid border border-green-200">
                         >
-                    </div>
+                    </button>
                 </div>        
             </div>
             <button class="container mx-auto w-full my-1.5 border-solid border border-green-200" @click="search()">Search</button>        
