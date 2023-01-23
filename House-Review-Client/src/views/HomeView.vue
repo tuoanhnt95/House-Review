@@ -1,16 +1,14 @@
 <template>
   <main>
-    <div>
-      <Map />
-      <Search />
+    <div>      
+      <UpperCard />
       <RecentReviews />
       <ReviewRequests />
     </div>
   </main>
 </template>
 <script setup>
-import Map from '../components/Map.vue';
-import Search from '../components/Search.vue';
+import UpperCard from '../components/UpperCard.vue';
 import RecentReviews from '../components/RecentReviews.vue';
 import ReviewRequests from '../components/ReviewRequests.vue';
 </script>
