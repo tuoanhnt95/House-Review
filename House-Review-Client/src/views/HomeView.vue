@@ -1,8 +1,10 @@
 <template>
   <main>
-    <Search />
-    <RecentReviews />
-    <ReviewRequests />
+    <div>
+      <Search />
+      <RecentReviews />
+      <ReviewRequests />
+    </div>
   </main>
 </template>
 <script setup>
