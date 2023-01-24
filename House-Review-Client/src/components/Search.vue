@@ -18,35 +18,11 @@
         <div class="my-2 drop-shadow-md">
             <div class="mb-1">
                 <div class="grid grid-cols-12">
-                    <div class="col-span-5">
-                        <div class="flex pr-1 bg-white rounded-l-sm border-solid border border-gray-200">
-                            <input type="text" 
-                                placeholder="rent"                               
-                                class="w-1/2 px-0.5 rounded-l-sm px-1"
-                            >
-                            <div>~</div>
-                            <input type="text"                                 
-                                class="w-1/2 px-0.5 rounded-r-sm px-1"
-                            >
-                            <div>¥</div>
-                        </div>
-                    </div>
-                    <div class="col-span-4">
-                        <div class="">
-                            <input type="text" 
-                                placeholder="area" 
-                                class="w-full px-1 border-solid border border-gray-200">
-                        </div>
-                    </div>
-                    <div class="col-span-2">
-                        <div class="">
-                            <input type="text" 
-                                placeholder="layout" 
-                                class="w-full px-1 rounded-r-sm border-solid border border-gray-200">
-                        </div>
-                    </div>
+                    <SearchTextInput left-search="rent" middle-search="area" right-search="layout">
+                        <template #leftSearchUnit>¥</template>
+                    </SearchTextInput>
                     <div class="col-span-1">
-                        <div class="bg-green-300 grid rounded-r border-solid border border-gray-200 drop-shadow-lg justify-center text-gray-400">
+                        <div class="bg-green-300 rounded-r border-solid border border-gray-200 drop-shadow-lg grid justify-center text-gray-400">
                             <button>
                                 <font-awesome-icon icon="fa-solid fa-plus"/>
                                 <!-- <font-awesome-icon icon="fa-solid fa-minus"/> -->
@@ -57,74 +33,18 @@
             </div>                   
             <div class="mb-1">
                 <div class="grid grid-cols-12">
-                    <div class="col-span-5">
-                        <div class="flex pr-1 bg-white rounded-l-sm border-solid border border-gray-200">
-                            <input type="text"
-                                placeholder="size"                              
-                                class="w-1/2 px-0.5 rounded-l-sm px-1"
-                            >
-                            <div>~</div>
-                            <input type="text"                             
-                                class="w-1/2 px-0.5 rounded-r-sm px-1"
-                            >
-                            <div>m<sup>2</sup></div>
-                        </div>
-                    </div>
-                    <div class="col-span-4">
-                        <div class="flex bg-white border-solid border border-gray-200">
-                            <input type="text" 
-                                placeholder="station" 
-                                class="w-full px-1"
-                            >
-                            駅
-                        </div>
-                    </div>
-                    <div class="col-span-2">
-                        <div class="flex bg-white rounded border-solid border-2 border-gray-300 px-1">
-                            <input type="text" 
-                                placeholder="1" 
-                                class="w-full text-right pr-0.5"
-                            >
-                            F
-                        </div>
-                    </div>
+                    <SearchTextInput left-search="size" middle-search="station" middle-search-unit="駅" right-search="1" right-search-unit="F">
+                        <template #leftSearchUnit>
+                            m<sup>2</sup>
+                        </template>
+                    </SearchTextInput>                    
                 </div>
             </div>            
             <div class="grid grid-cols-12">
                 <div class="col-span-11">
                     <div class="mb-1 px-1 rounded bg-white/75">
-                        <div class="grid grid-cols-4 gap-1">                  
-                            <div class="col-span-3">
-                                <input type="checkbox" 
-                                    name="foreign-friendly" 
-                                    id="foreign-friendly"                            
-                                >
-                                Foreign friendly                       
-                            </div>
-                            <div class="col-span-1">
-                                <input type="checkbox" 
-                                    name="foreign-friendly" 
-                                    id="foreign-friendly"                            
-                                >
-                                Pet 
-                            </div>                                
-                        </div>                        
-                        <div class="grid grid-cols-4 gap-1">                  
-                            <div class="col-span-3">                      
-                                <input type="checkbox" 
-                                name="foreign-friendly" 
-                                id="foreign-friendly"                            
-                                >
-                                Musical instrument 
-                            </div>
-                            <div class="col-span-1">
-                                <input type="checkbox" 
-                                    name="foreign-friendly" 
-                                    id="foreign-friendly"                            
-                                >
-                                DIY 
-                            </div>                                
-                        </div> 
+                        <SearchCheckBox inputOneName="foreign-friendly" inputOneId="foreign-friendly" checkboxOneTitle="Foreign friendly" inputTwoName="pet" inputTwoId="pet" checkboxTwoTitle="Pet"/>
+                        <SearchCheckBox inputOneName="musical-instrument" inputOneId="musical-instrument" checkboxOneTitle="Musical instrument" inputTwoName="diy" inputTwoId="diy" checkboxTwoTitle="DIY"/>
                     </div>
                 </div>
             </div>
@@ -140,6 +60,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import SearchTextInput from './SearchTextInput.vue';
+import SearchCheckBox from './SearchCheckBox.vue';
 
 const apartmentUrl = ref('')
 const minPrice = ref(0)
