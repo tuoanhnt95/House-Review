@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="bg-[url('../assets/images/map-placeholder.png')] bg-auto">
+        <div class="bg-[url('../assets/images/map-placeholder.png')]">
             <Search />
         </div>             
     </div>

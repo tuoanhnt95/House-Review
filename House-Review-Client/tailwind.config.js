@@ -6,7 +6,7 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   presets: [],
-  darkMode: 'media', // or 'class'
+  // darkMode: 'media', // or 'class'
   theme: {
     accentColor: ({ theme }) => ({
       ...theme('colors'),
