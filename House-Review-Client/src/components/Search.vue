@@ -22,16 +22,21 @@
                         <template #leftSearchUnit>¥</template>
                     </SearchTextInput>
                     <div class="col-span-1">
-                        <div class="bg-green-300 rounded-r border-solid border border-gray-200 drop-shadow-lg grid justify-center text-gray-400">
-                            <button>
-                                <font-awesome-icon icon="fa-solid fa-plus"/>
-                                <!-- <font-awesome-icon icon="fa-solid fa-minus"/> -->
-                            </button>
+                        <div class="bg-green-300 rounded-r border-solid border border-gray-200 drop-shadow-lg grid justify-center text-gray-400"                            
+                        >             
+                            <button @click="toggleAdvancedSearch">
+                                <font-awesome-icon icon="fa-solid fa-plus"
+                                    v-show="!advancedSearch"                
+                                />
+                                <font-awesome-icon icon="fa-solid fa-minus"
+                                    v-show="advancedSearch"                
+                                />
+                            </button>               
                         </div>
                     </div>        
                 </div>
             </div>                   
-            <div class="mb-1">
+            <div class="mb-1" v-show="advancedSearch">
                 <div class="grid grid-cols-12">
                     <SearchTextInput left-search="size" middle-search="station" middle-search-unit="駅" right-search="1" right-search-unit="F">
                         <template #leftSearchUnit>
@@ -40,7 +45,7 @@
                     </SearchTextInput>                    
                 </div>
             </div>            
-            <div class="grid grid-cols-12">
+            <div class="grid grid-cols-12" v-show="advancedSearch">
                 <div class="col-span-11">
                     <div class="mb-1 px-1 rounded bg-white/75">
                         <SearchCheckBox inputOneName="foreign-friendly" inputOneId="foreign-friendly" checkboxOneTitle="Foreign friendly" inputTwoName="pet" inputTwoId="pet" checkboxTwoTitle="Pet"/>
@@ -59,7 +64,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, reactive, computed } from 'vue';
 import SearchTextInput from './SearchTextInput.vue';
 import SearchCheckBox from './SearchCheckBox.vue';
 
@@ -77,6 +82,18 @@ function search() {
     const searchHouse = document.getElementById('search-url');
     console.log(searchHouse.value) 
 }
+
+// Toggle advanced search
+// const searchOption = reactive({
+//     advancedSearch: false
+// })
+
+let advancedSearch = ref(true)
+
+const toggleAdvancedSearch = () => {
+    advancedSearch.value = !advancedSearch.value
+}
+
 </script>
 
 <style scoped>

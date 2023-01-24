@@ -2,15 +2,15 @@
     <div class="grid grid-cols-4 gap-1">                  
         <div class="col-span-3">
             <input type="checkbox" 
-                :name="inputName" 
-                :id="inputId"
+                :name="inputOneName" 
+                :id="inputOneId"
             >
             {{ checkboxOneTitle }}
         </div>
         <div class="col-span-1">
             <input type="checkbox" 
-                :name="inputName" 
-                :id="inputId"
+                :name="inputTwoName" 
+                :id="inputTwoId"
             >
             {{ checkboxTwoTitle }}
         </div>                                
