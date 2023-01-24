@@ -10,7 +10,7 @@
                     >
                 </div>
                 <button class="bg-white hover:bg-green-300 rounded-r-sm">
-                    P
+                    <font-awesome-icon icon="fa-solid fa-magnifying-glass" />
                 </button>
             </div>
         </div>
