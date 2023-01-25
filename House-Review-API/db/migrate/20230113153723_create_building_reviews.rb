@@ -4,6 +4,8 @@ class CreateBuildingReviews < ActiveRecord::Migration[7.0]
       t.text :content
       t.references :building, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
+      t.references :jap_lvl, foreign_key: true
+      t.references :experience_type, foreign_key: true
       t.decimal :living_duration
 
       t.timestamps

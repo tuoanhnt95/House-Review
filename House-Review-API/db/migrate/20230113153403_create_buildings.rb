@@ -3,10 +3,16 @@ class CreateBuildings < ActiveRecord::Migration[7.0]
     create_table :buildings do |t|
       t.string :building_url
       t.string :building_name
-      t.integer :mng_fee
+      t.decimal :mng_fee
       t.integer :built_year
-      t.references :city_ward_district, null: false, foreign_key: true
+      t.references :municipality, null: false, foreign_key: true
       t.string :area_address
+      t.boolean :pet
+      t.boolean :baby
+      t.boolean :trash_time_restrict
+      t.boolean :diy
+      t.boolean :musical_instrument
+      t.boolean :foreign_friendly
 
       t.timestamps
     end

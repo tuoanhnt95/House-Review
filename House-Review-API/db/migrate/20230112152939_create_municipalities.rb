@@ -1,9 +1,10 @@
-class CreateCityWardDistricts < ActiveRecord::Migration[7.0]
+class CreateMunicipalities < ActiveRecord::Migration[7.0]
   def change
-    create_table :city_ward_districts do |t|
+    create_table :municipalities do |t|
       t.string :name
       t.string :name_jpn
       t.references :prefecture, null: false, foreign_key: true
+      t.string :municipality_code
 
       t.timestamps
     end

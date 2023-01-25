@@ -4,7 +4,7 @@ class CreateStations < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :name_jpn
       t.string :postal_code
-      t.references :city_ward_district, null: false, foreign_key: true
+      t.references :municipality, null: false, foreign_key: true
       t.string :area_address
 
       t.timestamps

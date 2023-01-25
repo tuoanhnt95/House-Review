@@ -3,6 +3,7 @@ class CreatePrefectures < ActiveRecord::Migration[7.0]
     create_table :prefectures do |t|
       t.string :name
       t.string :name_jpn
+      t.string :prefecture_code
 
       t.timestamps
     end
