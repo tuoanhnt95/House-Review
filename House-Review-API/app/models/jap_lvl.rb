@@ -1,0 +1,2 @@
+class JapLvl < ApplicationRecord
+end
