@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   }
 
   get '/member_details' => 'members#index'
+  get '/prefectures' => 'members#index'
+
+
   get '/building_scrape' => 'buildings#scrape'
-  get '/prefectures' => 'prefectures#index'
 
   resources :reviews
   resources :buildings
