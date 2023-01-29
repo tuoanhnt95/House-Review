@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   get '/building_scrape' => 'buildings#scrape'
 
-
   resources :reviews
   resources :buildings
 end
