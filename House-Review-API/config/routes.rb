@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get '/member_details' => 'members#index'
   get '/prefectures' => 'members#index'
-  get '/search_house/:url' => 'scraper#scrape', as: 'url'
+  post '/search_house' => 'scraper#scrape', as: 'url'
 
   resources :reviews
   resources :buildings
