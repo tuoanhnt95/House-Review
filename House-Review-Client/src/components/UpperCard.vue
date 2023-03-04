@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="bg-[url('../assets/images/map-placeholder.png')]">
-            <Search />
-        </div>             
+        <div class="bg-cover bg-[url('../assets/images/house-placeholder.jpeg')]">
+          <Search />
+        </div>
     </div>
 </template>
 
