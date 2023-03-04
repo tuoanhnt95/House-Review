@@ -1,10 +1,10 @@
 <template>
   <main>
-    <div>      
+    <div>
       <UpperCard />
-      <HouseCardSlider title="Recent reviews" />
-      <HouseCardSlider title="Popular reviews" />
-      <HouseCardSlider title="Review requests" />
+      <HouseCardSlider title="Recent reviews" content="recent-reviews"/>
+      <HouseCardSlider title="Popular reviews" content="popular-reviews" />
+      <HouseCardSlider title="Review requests" content="review-requests" />
       <ReviewRequests />
     </div>
   </main>
